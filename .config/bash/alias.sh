@@ -4,6 +4,8 @@ fi
 
 alias ll='ls -l'
 alias la='ls -la'
+alias gamma='xgamma -gamma'
+alias copy='xclip -selection c'
 
 # function for $PS1
 function get_git_branch_status {

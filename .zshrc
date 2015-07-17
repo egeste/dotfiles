@@ -85,3 +85,6 @@ for config_file ($HOME/.config/common/*.sh); do source $config_file; done
 for config_file ($HOME/.config/private/*.sh); do source $config_file; done
 
 export PATH="$PATH:$HOME/.rvm/bin" # Add RVM to PATH for scripting
+
+export NVM_DIR="/home/egeste/.nvm"
+[ -s "$NVM_DIR/nvm.sh" ] && . "$NVM_DIR/nvm.sh"  # This loads nvm
