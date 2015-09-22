@@ -84,7 +84,21 @@ for config_file ($HOME/.config/zsh/*.sh); do source $config_file; done
 for config_file ($HOME/.config/common/*.sh); do source $config_file; done
 for config_file ($HOME/.config/private/*.sh); do source $config_file; done
 
-export PATH="$PATH:$HOME/.rvm/bin" # Add RVM to PATH for scripting
-
+export PATH="/usr/local/heroku/bin:$PATH"
+export PATH="$HOME/.rvm/bin:$PATH"
 export NVM_DIR="/home/egeste/.nvm"
-[ -s "$NVM_DIR/nvm.sh" ] && . "$NVM_DIR/nvm.sh"  # This loads nvm
+
+# This loads nvm
+[ -s "$NVM_DIR/nvm.sh" ] && . "$NVM_DIR/nvm.sh"
+
+# Load RVM into a shell session *as a function*
+[[ -s "$HOME/.rvm/scripts/rvm" ]] && source "$HOME/.rvm/scripts/rvm"
+
+# Create an alias for our fun little catpix script
+function catpix_random_image {
+  catpix_dir="${HOME}/Pictures/catpix"
+  catpix_image=`find $catpix_dir -type f | shuf -n 1`
+  rvm-exec default catpix $catpix_image -w .3 -r high
+}
+
+catpix_random_image
