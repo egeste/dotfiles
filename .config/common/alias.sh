@@ -30,6 +30,12 @@ function iso2img {
 
 function gitStats {
   git log --numstat --no-merges --pretty=format:%an | \
-  awk 'author == "" { author = $0; next } /^$/ { author = ""; next } { added[author] += $1; removed[author] += $2 } END { for (author in added) { print author, "added", added[author], "removed", removed[author], "sum", added[author]-removed[author]} }' | \
-  sort -n -k 7
+  awk 'author == "" { author = $0; next } /^$/ { author = ""; next } { added[author] += $1; removed[author] += $2 } END { for (author in added) { print author, "added", added[author], "removed", removed[author], "sum", added[author]+removed[author]} }' # | \
+  sort -n -k7
+}
+
+function osxDing {
+  afplay /System/Library/Sounds/Glass.aiff
+  afplay /System/Library/Sounds/Glass.aiff
+  afplay /System/Library/Sounds/Glass.aiff
 }
