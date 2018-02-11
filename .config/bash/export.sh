@@ -4,3 +4,4 @@ fi
 
 export CLICOLOR=1
 export PS1="\u@\h:\w\$(get_git_branch_status)\$ "
+export PATH=${PATH}:${HOME}/.local/bin

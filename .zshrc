@@ -86,6 +86,7 @@ for config_file ($HOME/.config/private/*.sh); do source $config_file; done
 
 export PATH="/usr/local/heroku/bin:$PATH"
 export PATH="$HOME/.rvm/bin:$PATH"
+export PATH="$HOME/.local/bin:$PATH"
 export NVM_DIR="$HOME/.nvm"
 
 # This loads nvm
@@ -101,6 +102,8 @@ function catpix_random_image {
   rvm-exec default catpix $catpix_image -w .3 -r high
 }
 
-#catpix_random_image
+# The next line updates PATH for the Google Cloud SDK.
+# if [ -f '/home/egeste/google-cloud-sdk/path.zsh.inc' ]; then source '/home/egeste/google-cloud-sdk/path.zsh.inc'; fi
 
-test -e "${HOME}/.iterm2_shell_integration.zsh" && source "${HOME}/.iterm2_shell_integration.zsh"
+# The next line enables shell command completion for gcloud.
+# if [ -f '/home/egeste/google-cloud-sdk/completion.zsh.inc' ]; then source '/home/egeste/google-cloud-sdk/completion.zsh.inc'; fi
