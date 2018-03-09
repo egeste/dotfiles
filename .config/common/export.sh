@@ -26,4 +26,6 @@ export JRUBY_OPTS="${BIG_HEAP}"
 #export JDK_HOME=$(/usr/libexec/java_home)
 
 # nvm... it's a thing
-source ~/.nvm/nvm.sh
+if [ -d ~/.nvm/nvm.sh ]; then
+  source ~/.nvm/nvm.sh
+fi
