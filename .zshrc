@@ -107,3 +107,4 @@ function catpix_random_image {
 
 # The next line enables shell command completion for gcloud.
 # if [ -f '/home/egeste/google-cloud-sdk/completion.zsh.inc' ]; then source '/home/egeste/google-cloud-sdk/completion.zsh.inc'; fi
+[ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"  # This loads nvm bash_completion
