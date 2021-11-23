@@ -95,13 +95,6 @@ export NVM_DIR="$HOME/.nvm"
 # Load RVM into a shell session *as a function*
 [[ -s "$HOME/.rvm/scripts/rvm" ]] && source "$HOME/.rvm/scripts/rvm"
 
-# Create an alias for our fun little catpix script
-function catpix_random_image {
-  catpix_dir="${HOME}/Pictures/catpix"
-  catpix_image=`find $catpix_dir -type f | shuf -n 1`
-  rvm-exec default catpix $catpix_image -w .3 -r high
-}
-
 # The next line updates PATH for the Google Cloud SDK.
 # if [ -f '/home/egeste/google-cloud-sdk/path.zsh.inc' ]; then source '/home/egeste/google-cloud-sdk/path.zsh.inc'; fi
 
