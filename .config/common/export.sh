@@ -19,8 +19,8 @@ export PATH=$PATH:/bin
 export MANPATH=/opt/local/share/man:$MANPATH
 
 # Set a huge java heap. Because reasons.
-BIG_HEAP="-J-Xmx1400M -J-XX:MaxPermSize=256M -J-XX:ReservedCodeCacheSize=64M"
-export JRUBY_OPTS="${BIG_HEAP}"
+#BIG_HEAP="-J-Xmx1400M -J-XX:MaxPermSize=256M -J-XX:ReservedCodeCacheSize=64M"
+#export JRUBY_OPTS="${BIG_HEAP}"
 
 #export JAVA_HOME=$(/usr/libexec/java_home)
 #export JDK_HOME=$(/usr/libexec/java_home)
