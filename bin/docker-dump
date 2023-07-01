@@ -1,0 +1,47 @@
+################################################################################
+# A simple script for dumping the layers of a docker image.
+#
+# Dependencies:
+#   * docker (duh)
+#   * jq (https://stedolan.github.io/jq/)
+#
+# Usage
+# ./docker_dump.sh DOCKER_IMAGE_NAME
+#
+################################################################################
+
+#!/usr/bin/env bash
+
+# Allow the image to be passed in as a variable
+DOCKER_IMAGE_URL=$1
+
+# Define where we'll save all the output
+EXTRACTION_DIR=$(echo $DOCKER_IMAGE_URL|sed 's#[.:/]#_#g')
+
+# Create the output dir
+mkdir -p $EXTRACTION_DIR
+
+# Pull the image
+docker pull $DOCKER_IMAGE_URL
+
+# Dump the image to a tar file & extract it
+DOCKER_TAR="${EXTRACTION_DIR}/image.tar"
+docker save $DOCKER_IMAGE_URL -o $DOCKER_TAR
+tar -xf $DOCKER_TAR -C $EXTRACTION_DIR
+
+# Get a list of layers in the docker image
+$LAYERS=$(cat "${EXTRACTION_DIR}/manifest.json"|jq -r '.[].Layers[]')
+
+# Iterate over the layers, and extract them
+for layer in $LAYERS; do
+  LAYER_PATH="${EXTRACTION_DIR}/${layer}"
+  LAYER_DIR=$(dirname $LAYER_PATH)
+  LAYER_NAME=$(basename $LAYER_DIR)
+  LAYER_EXTRACTION_DIR="${LAYER_DIR}/extracted"
+
+  mkdir -p $LAYER_EXTRACTION_DIR
+  tar -xf $LAYER_PATH -C $LAYER_EXTRACTION_DIR
+done
+
+# Finally, print out everything we just extracted
+find $EXTRACTION_DIR

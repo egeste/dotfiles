@@ -4,7 +4,7 @@ export GIT_EDITOR=$EDITOR
 
 export LSCOLORS=ExFxBxDxCxegedabagacad
 
-PATH=$HOME/bin
+export PATH=${HOME}/bin:${PATH}
 export PATH=$PATH:/usr/lib/android-sdk-linux/platform-tools # Android SDK
 export PATH=$PATH:/usr/local/sbin
 export PATH=$PATH:/usr/local/bin

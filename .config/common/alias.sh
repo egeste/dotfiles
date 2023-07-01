@@ -1,6 +1,6 @@
 alias slt='subl'
-alias sudo='sudo ' # When using sudo, use alias expansion (otherwise sudo ignores your aliases)
-alias fucking='sudo' # reasons
+alias sudo='nocorrect sudo ' # When using sudo, use alias expansion (otherwise sudo ignores your aliases)
+alias fucking='nocorrect sudo ' # reasons
 
 # git stuff
 alias ga='git add -A'
