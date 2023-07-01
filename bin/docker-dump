@@ -1,3 +1,6 @@
+#!/usr/bin/env bash
+
+cat <<EOF
 ################################################################################
 # A simple script for dumping the layers of a docker image.
 #
@@ -9,8 +12,7 @@
 # ./docker_dump.sh DOCKER_IMAGE_NAME
 #
 ################################################################################
-
-#!/usr/bin/env bash
+EOF
 
 # Allow the image to be passed in as a variable
 DOCKER_IMAGE_URL=$1
